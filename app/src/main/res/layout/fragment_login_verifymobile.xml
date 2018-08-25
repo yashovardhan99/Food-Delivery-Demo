@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="wrap_content">
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="32dp"
+            android:paddingBottom="16dp"
+            android:layout_centerHorizontal="true"
+            android:text="Enter the OTP you received by SMS"
+            android:id="@+id/textview_login_enterotpprompt"
+            android:gravity="center"
+            android:layout_alignParentTop="true"
+            android:visibility="invisible"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_alignParentTop="true"
+            android:id="@+id/linearlayout_login_indicateautoretriving">
+            <ProgressBar
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/progressbar_login"
+                android:padding="16dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Trying to auto verify your phone"
+                android:id="@+id/textview_login_verifyingprompt"
+                android:padding="16dp"/>
+        </LinearLayout>
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textinputlayout_login_enterotp"
+            android:layout_below="@id/linearlayout_login_indicateautoretriving"
+            android:layout_centerHorizontal="true"
+            android:padding="16dp"
+            android:visibility="gone">
+            <android.support.design.widget.TextInputEditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="6"
+                android:hint="Enter OTP"
+                android:inputType="number"
+                android:imeOptions="actionDone"
+                android:gravity="center"
+                android:id="@+id/textinputedittext_login_otp" />
+        </android.support.design.widget.TextInputLayout>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sign In"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/textinputlayout_login_enterotp"
+            android:padding="16dp"
+            android:id="@+id/button_login_submitotp"
+            android:visibility="gone"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:layout_below="@id/button_login_submitotp"
+            android:id="@+id/textview_login_otpsentprompt"
+            android:layout_centerHorizontal="true"
+            android:textAlignment="center"
+            android:padding="16dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:visibility="gone"
+            android:layout_below="@id/textview_login_otpsentprompt"
+            android:text="Resend OTP"
+            android:textColor="@color/colorAccent"
+            android:id="@+id/textview_login_otpResendPrompt"
+            android:padding="16dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:visibility="gone"
+            android:layout_below="@+id/textview_login_otpResendPrompt"
+            android:text="Change mobile number"
+            android:textColor="@color/colorAccent"
+            android:padding="16dp"
+            android:id="@+id/textview_login_changenumber"/>
+    </RelativeLayout>
+</ScrollView>
