@@ -7,9 +7,12 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:windowBackground">@color/windowBackground</item>
-        <item name="windowActionBar">@color/appBar</item>
         <item name="android:itemBackground">@color/cards</item>
+    </style>
 
+    <style name="AppTheme.ActionBar" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
+        <item name="android:background">@color/appBar</item>
+        <item name="android:itemBackground">@color/cards</item>
     </style>
 
 </resources>
