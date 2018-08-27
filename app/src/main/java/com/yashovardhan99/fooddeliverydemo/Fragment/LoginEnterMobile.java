@@ -44,7 +44,7 @@ public class LoginEnterMobile extends Fragment {
         final TextInputEditText countryEditText = RootView.findViewById(R.id.textinputedittext_login_countrycode);
 
         if(getArguments()!=null && getArguments().containsKey(Login.INVALID_PHONE_KEY))
-            invalidPhoneNumber(getArguments().getString(Login.INVALID_PHONE_KEY));
+            verificationFailed(getArguments().getString(Login.INVALID_PHONE_KEY));
 
         phoneEditText.requestFocus();
 
@@ -54,7 +54,7 @@ public class LoginEnterMobile extends Fragment {
                 String phone = countryEditText.getText().toString().trim() + phoneEditText.getText().toString().trim();
 
                 if(phoneEditText.getText().toString().trim().length()<4 || !PhoneNumberUtils.isGlobalPhoneNumber(phone))
-                    invalidPhoneNumber(phone);
+                    verificationFailed(phone);
 
                 else if(!countryEditText.getText().toString().trim().startsWith("+") || countryEditText.getText().toString().trim().length()<2)
                     countryEditText.setError("Please enter a valid coumtry code, like +91 for India");
@@ -75,9 +75,9 @@ public class LoginEnterMobile extends Fragment {
         return RootView;
     }
 
-    public void invalidPhoneNumber(String phone){
-        phoneEditText.setError("Please enter a valid phone number");
-        String p = "We could not verify the number "+PhoneNumberUtils.formatNumber(phone);
+    public void verificationFailed(String phone){
+        String p = "We could not verify the number "+PhoneNumberUtils.formatNumber(phone)+"\n" +
+                "Make sure your device is connected to the internet and re-check the number you entered.";
         prompt.setText(p);
         prompt.setTextColor(Color.RED);
     }
